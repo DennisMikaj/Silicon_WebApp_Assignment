@@ -1065,6 +1065,7 @@ footer .container span {
 }
 .tools .container .grid-tools p {
   margin-top: 25px;
+  color: #33354D;
 }
 .tools .container .grid-tools .content {
   padding: 10px;
@@ -1072,4 +1073,75 @@ footer .container span {
 .tools .container .grid-tools .content:hover {
   border-radius: 8px;
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter {
+  background-color: #f3f6ff;
+  padding-bottom: 60px;
+}
+.newsletter .container .title {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+.newsletter .container .title img {
+  width: 6%;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.newsletter .container h4 {
+  color: #0B0F19;
+}
+.newsletter .container .newsletter-checkbox-group {
+  display: grid;
+  grid-template-areas: "title newsletter updates review" "title events startups podcasts";
+}
+.newsletter .container #title {
+  grid-area: title;
+}
+.newsletter .container #newsletter {
+  grid-area: newsletter;
+}
+.newsletter .container #updates {
+  grid-area: updates;
+}
+.newsletter .container #review {
+  grid-area: review;
+}
+.newsletter .container #events {
+  grid-area: events;
+}
+.newsletter .container #startups {
+  grid-area: startups;
+}
+.newsletter .container #podcasts {
+  grid-area: podcasts;
+}
+.newsletter .container .email-button {
+  margin-top: 50px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 3fr 1fr;
+}
+.newsletter .container .input-with-icon {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.newsletter .container .input-with-icon input {
+  width: 100%;
+}
+.newsletter .container button {
+  width: 50%;
+  height: 60%;
+}
+.newsletter .container .input-with-icon input[type=email] {
+  padding-left: 30px;
+}
+.newsletter .container .input-with-icon .fa-envelope {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
 }
