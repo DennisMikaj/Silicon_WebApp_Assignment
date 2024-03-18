@@ -1,16 +1,25 @@
 ﻿@using Silicon_WebApp.ViewModels
 @model AccountDetailsViewModel
 @{
-	ViewData["Title"] = $"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}'s profile";
+	ViewData["Title"] = $"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}'s profile";
 }
 
 <div class="container">
 	<section id="account-details">
+		@if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+		{
+			<div class="alert">
+				@ViewData["ErrorMessage"]
+			</div>
+		}
+
+
+
 		<aside>
 			<div class="profile-info">
-				<img src="@Model.BasicInfo.ProfileImage" alt="@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")" />
-				<h5>@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")</h5>
-				<p>@Model.BasicInfo.Email</p>
+				<img src="~/images/@Model.ProfileInfo.ProfileImageUrl" alt="" />
+				<h5>@Model.ProfileInfo.FirstName @Model.ProfileInfo.LastName</h5>
+				<p>@Model.ProfileInfo.Email</p>
 			</div>
 
 			<nav>
@@ -21,7 +30,7 @@
 
 		<div class="details">
 			<section class="basic-info">
-				<form method="post">
+				<form method="post" asp-controller="Account" asp-action="Index" novalidate>
 					<h2>Account Details</h2>
 					<h5>Basic Info</h5>
 
@@ -67,7 +76,7 @@
 			</section>
 			<hr />
 			<section class="address-info">
-				<form method="post">
+				<form method="post" asp-controller="Account" asp-action="Index" novalidate>
 					<h2>Address</h2>
 
 					<div class="content">

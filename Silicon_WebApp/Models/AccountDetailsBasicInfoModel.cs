@@ -1,9 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace Silicon_WebApp.Models;
 
 public class AccountDetailsBasicInfoModel
 {
+
+	public string UserId { get; set; } = null!;
+
+
 	[DataType(DataType.ImageUrl)]
 	public string? ProfileImage { get; set; }
 
@@ -23,12 +28,11 @@ public class AccountDetailsBasicInfoModel
 	public string Email { get; set; } = null!;
 
 
-	[Display(Name = "Phone", Prompt = "Enter your phone", Order = 3)]
+	[Display(Name = "Phone (optional)", Prompt = "Enter your phone", Order = 3)]
 	[DataType(DataType.PhoneNumber)]
-	[Required(ErrorMessage = "Phone is required")]
-	public string Phone { get; set; } = null!;
+	public string? Phone { get; set; }
 
-	[Display(Name = "Bio", Prompt = "add a short bio...", Order = 4)]
+	[Display(Name = "Bio (optional)", Prompt = "add a short bio...", Order = 4)]
 	[DataType(DataType.MultilineText)]
 	public string? Biography { get; set; }
 }
