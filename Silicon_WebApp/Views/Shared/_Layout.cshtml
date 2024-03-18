@@ -1,49 +1,76 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="sv-se">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Silicon_WebApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Silicon_WebApp.styles.css" asp-append-version="true" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+	<script defer src="https://kit.fontawesome.com/41c8b474e2.js" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+	<link rel="icon" href="~/favicon-32x32.png">
+
+	@if (!string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()))
+	{
+		<title>@ViewData["Title"] - Silicon</title>
+	}
+	else
+	{
+		<title>Silicon</title>
+	}
+
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Silicon_WebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Silicon_WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+	<div class="wrapper">
+		<header>
+			<div class="container">
+				<a id="logo" asp-controller="Home" asp-action="Index"><img src="~/images/Silicon-icon-full.svg" alt="" /></a>
+				<button onclick="toggleMenu()" class="btn-mobile">
+					<i class="fa-regular fa-bars"></i>
+				</button>
+				<div id="menu">
+					<nav>
+						<a class="menu-link" asp-controller="Home" asp-fragment="overview">Overview</a>
+						<a class="menu-link" asp-controller="Home" asp-fragment="features">Features </a>
+						<a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
+					</nav>
+				</div>
+
+				<div class="btn-switch">
+					<label>Light</label>
+					<label class="switch" for="switch-mode">
+						<input type="checkbox" id="switch-mode" />
+						<span class="slider round"></span>
+					</label>
+					<label>Dark</label>
+				</div>
+
+				<div class="account-buttons">
+					<a class="btn-gray" asp-controller="Auth" asp-action="Login"><i class="fa-solid fa-right-to-bracket"></i><span>Sign In</span></a>
+					<a class="btn-theme" asp-controller="Auth" asp-action="Register"><i class="fa-regular fa-user"></i><span>Sign Up</span></a>
+				</div>
+
+				<div id="account-buttons" class="hide">
+				</div>
+
+			</div>
+
+		</header>
+		<main>
+			@RenderBody()
+		</main>
+		<footer>
+			<div class="container">
+				<div class="@((ViewContext.RouteData.Values["Controller"]!.ToString() == "Auth") ? "d-none" : "social-media")">
+					<a class="btn-social" href="#"><i class="fa-brands fa-facebook"></i> </a>
+					<a class="btn-social" href="#"><i class="fa-brands fa-square-x-twitter"></i> </a>
+					<a class="btn-social" href="#"><i class="fa-brands fa-instagram"></i> </a>
+					<a class="btn-social" href="#"><i class="fa-brands fa-youtube"></i> </a>
+				</div>
+				<p><strong> &copy; @DateTime.Now.Year Silicon. All rights reserved.</strong><span> Pulvinar urna condimentum amet tempor, ornare integer. Lorem odio justo malesuada suspendisse viverra aliquet quisque turpis non. Feugiat in odio non nunc ornare consectetur.</span></p>
+			</div>
+		</footer>
+	</div>
+	<script defer src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>

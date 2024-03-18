@@ -1,0 +1,39 @@
+﻿.app-section {
+    background-color: #f3f6ff;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 70px;
+        padding-bottom: 70px;
+
+        .content {
+            margin-top: 70px;
+            display: grid;
+            grid-template-areas: "title title" "rating-star rating-star" "highlight app-store" "rating-text app-store";
+
+            #title {
+                margin-bottom: 10px;
+                grid-area: title;
+            }
+
+            #rating-star {
+                margin-bottom: 10px;
+                grid-area: rating-star;
+            }
+
+            #highlight {
+                grid-area: highlight;
+            }
+
+            #app-store {
+                grid-area: app-store
+            }
+
+            #rating-text {
+                grid-area: rating-text;
+            }
+        }
+    }
+}

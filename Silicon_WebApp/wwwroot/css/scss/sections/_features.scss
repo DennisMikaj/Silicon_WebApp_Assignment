@@ -1,0 +1,40 @@
+#features {
+    text-align: center;
+    background-color: #f3f6ff;
+
+    .container {
+        padding-top: 40px;
+        padding-bottom: 80px;
+    }
+}
+
+.tool-features {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .box {
+        border-radius: 8px;
+        img {
+            margin-top: 25px;
+        }
+
+        &:hover {
+            background-color: #ffffff;
+        }
+    }
+
+
+    .box-2 {
+        border-bottom: 1px solid #e3e6f2;
+    }
+
+    .box-border {
+        border-right: 1px solid #e3e6f2;
+        border-left: 1px solid #e3e6f2;
+    }
+
+    .box-bottom {
+        border-bottom: 1px solid #e3e6f2;
+    }
+}

@@ -1,0 +1,37 @@
+﻿.tools {
+
+    .container {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+
+        .title-text {
+            width: 60%;
+        }
+
+        .grid-tools {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-top: 100px;
+            text-align: start;
+
+            p {
+                margin-top: 25px;
+            }
+
+            .content {
+                padding: 10px;
+
+                &:hover {
+                    border-radius: 8px;
+                    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1); 
+                }
+            }
+        }
+    }
+}
