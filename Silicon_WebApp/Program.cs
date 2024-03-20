@@ -17,9 +17,9 @@ builder.Services.AddDefaultIdentity<AppUser>(x =>
 
 builder.Services.ConfigureApplicationCookie(x =>
 {
-	x.LoginPath = "/signin";
+	x.LoginPath = "/login";
 	x.LogoutPath = "/signout";
-	x.AccessDeniedPath = "/denied";
+	x.AccessDeniedPath = "/login";
 
 	x.Cookie.HttpOnly = true;
 	x.Cookie.SecurePolicy = CookieSecurePolicy.Always;

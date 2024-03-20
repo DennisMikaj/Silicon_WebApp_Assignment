@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -71,10 +72,18 @@ public class AuthController(UserManager<AppUser> userManager, SignInManager<AppU
         return View(model);
     }
 
-
+    [AllowAnonymous, HttpGet]
 	public async Task<IActionResult> Logout()
 	{
-		await HttpContext.SignOutAsync();
-        return RedirectToAction("Index", "Home");
+        if (User.Identity!.IsAuthenticated)
+        {
+			await _signInManager.SignOutAsync();
+			return RedirectToAction("Index", "Home");
+		}
+        else
+        {
+            return RedirectToAction("Index", "Home");
+        }
+		
 	}
 }

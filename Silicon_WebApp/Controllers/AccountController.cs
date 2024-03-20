@@ -157,10 +157,10 @@ public class AccountController(UserManager<AppUser> userManager, AddressManager 
 			var address = await _addressManager.GetAddressAsync(user.Id);
 			return new AccountDetailsAddressInfoModel
 			{
-				AddressLine_1 = address.AddressLine_1,
-				AddressLine_2 = address.AddressLine_2,
-				PostalCode = address.PostalCode,
-				City = address.City,
+				AddressLine_1 = address?.AddressLine_1,
+				AddressLine_2 = address?.AddressLine_2,
+				PostalCode = address?.PostalCode,
+				City = address?.City,
 			};
 		}
 		return new AccountDetailsAddressInfoModel();

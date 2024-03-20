@@ -31,7 +31,14 @@
 				<div id="menu">
 					<nav>
 						<a class="menu-link" asp-controller="Home" asp-fragment="overview">Overview</a>
-						<a class="menu-link" asp-controller="Home" asp-fragment="features">Features </a>
+						@if (User.Identity!.IsAuthenticated)
+						{
+							<a class="menu-link" asp-controller="Courses" asp-fragment="Index">Courses</a>
+						}
+						else
+						{
+							<a class="menu-link" asp-controller="Home" asp-fragment="features">Features </a>
+						}
 						<a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
 					</nav>
 				</div>
@@ -46,8 +53,15 @@
 				</div>
 
 				<div class="account-buttons">
+					@if (User.Identity.IsAuthenticated)
+					{
+						<a asp-controller="Account" asp-action="Index"><img class="profile-link" src="~/images/profile-image.svg"/></a>
+					}
+					else
+					{
 					<a class="btn-gray" asp-controller="Auth" asp-action="Login"><i class="fa-solid fa-right-to-bracket"></i><span>Sign In</span></a>
 					<a class="btn-theme" asp-controller="Auth" asp-action="Register"><i class="fa-regular fa-user"></i><span>Sign Up</span></a>
+					}
 				</div>
 
 				<div id="account-buttons" class="hide">
@@ -72,5 +86,6 @@
 		</footer>
 	</div>
 	<script defer src="~/js/site.js" asp-append-version="true"></script>
+	<script defer src="~/js/validation.js" asp-append-version="true"></script>
 </body>
 </html>

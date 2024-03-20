@@ -53,6 +53,11 @@ header {
             @include xl {
                 display: flex;
             }
+
+            .profile-link {
+                width: 40%;
+                height: auto;
+            }
         }
 
         .btn-mobile {
