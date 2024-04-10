@@ -1,5 +1,10 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Silicon_WebApp.Entites;
+using Silicon_WebApp.ViewModels;
 using System.Diagnostics;
+using System.Text;
 
 namespace Silicon_WebApp.Controllers
 {
@@ -14,12 +19,9 @@ namespace Silicon_WebApp.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
+			var viewModel = new SubscribeViewModel();
+			return View(viewModel);
 		}
 
-		public IActionResult Privacy()
-		{
-			return View();
-		}
 	}
 }

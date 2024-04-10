@@ -1,0 +1,60 @@
+﻿@using Silicon_WebApp.ViewModels
+@model SubscribeViewModel
+
+<section id="signup-section">
+	<div class="newsletter">
+		<div class="container">
+			<div class="title">
+				<h1>Don't want to Miss Anything?</h1>
+				<img src="~/images/arrows.svg" alt="decorative arrows" />
+			</div>
+
+
+
+			<form asp-action="Index" asp-controller="Subscriber" method="post">
+				<div class="newsletter-checkbox-group">
+					<h4 id="title">Sign up for Newsletters</h4>
+					<label>
+						<input id="newsletter" type="checkbox" name="Daily Newsletter" />
+						Daily Newsletter
+					</label>
+					<label>
+						<input id="updates" type="checkbox" name="Advertising Updates" />
+						Advertising Updates
+					</label>
+					<label>
+						<input id="review" type="checkbox" name="Week in Review" />
+						Week in Review
+					</label>
+					<label>
+						<input id="updates" type="checkbox" name="Event Updates" />
+						Event Updates
+					</label>
+					<label>
+						<input id="startups" type="checkbox" name="Startups Weekly" />
+						Startups Weekly
+					</label>
+					<label>
+						<input id="podcasts" type="checkbox" name="Podcasts" />
+						Podcasts
+					</label>
+				</div>
+				<div class="email-button">
+					<div class="input-with-icon">
+						<i class="fa-regular fa-envelope"></i>
+						<input asp-for="@Model.Email" type="email" placeholder="Your Email" />
+					</div>
+					<div class="subscribe-button">
+						<button type="submit" class="btn-theme">Subscribe*</button>
+					</div>
+				</div>
+
+				<p>* Yes, I agree to the <a href="#">terms</a> and <a href="#">privacy</a> policy.</p>
+			</form>
+			@if (Model.IsSubscribed)
+			{
+				<div class="alert alert-primary">You are subscribed</div>
+			}
+		</div>
+	</div>
+</section>

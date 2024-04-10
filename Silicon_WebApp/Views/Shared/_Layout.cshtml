@@ -1,5 +1,11 @@
-﻿<!DOCTYPE html>
-<html lang="sv-se">
+﻿@{
+	var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
+	var isDark = (themeMode == "dark") ? true : false;
+}
+
+
+<!DOCTYPE html>
+<html lang="sv-se" class="@themeMode">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" , initial-scale="1.0" />
@@ -21,10 +27,14 @@
 </head>
 <body>
 
+	
+
 	<div class="wrapper">
 		<header>
 			<div class="container">
-				<a id="logo" asp-controller="Home" asp-action="Index"><img src="~/images/Silicon-icon-full.svg" alt="" /></a>
+				<a id="logo" asp-controller="Home" asp-action="Index">
+					<img src="~/images/logos/@(isDark ? "logo-dark.svg" : "logo-light.svg")" alt="" />
+					</a>
 				<button onclick="toggleMenu()" class="btn-mobile">
 					<i class="fa-regular fa-bars"></i>
 				</button>
@@ -46,7 +56,7 @@
 				<div class="btn-switch">
 					<label>Light</label>
 					<label class="switch" for="switch-mode">
-						<input type="checkbox" id="switch-mode" />
+						<input type="checkbox" id="switch-mode" checked="@isDark"/>
 						<span class="slider round"></span>
 					</label>
 					<label>Dark</label>
@@ -87,5 +97,9 @@
 	</div>
 	<script defer src="~/js/site.js" asp-append-version="true"></script>
 	<script defer src="~/js/validation.js" asp-append-version="true"></script>
+	<script defer src="~/js/themeswitcher.js" asp-append-version="true"></script>
+
+	<partial name="_CookieConsent" />
+
 </body>
 </html>

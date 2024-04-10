@@ -22,8 +22,10 @@
 
             p {
                 margin-top: 25px;
-                color: $gray-800;
+                color: var(--gray-800);
             }
+
+
 
             .content {
                 padding: 10px;
@@ -32,6 +34,8 @@
                     border-radius: 8px;
                     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
                 }
+
+                
             }
         }
     }

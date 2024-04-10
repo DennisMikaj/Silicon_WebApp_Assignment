@@ -1,4 +1,11 @@
-﻿<section id="showcase">
+﻿@using Silicon_WebApp.ViewModels
+@model SubscribeViewModel
+@{
+	var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
+	var isDark = (themeMode == "dark") ? true : false;
+}
+
+<section id="showcase">
 	<img class="background-image" src="images/background-image.svg" alt="Task Management Assistant" />
 	<div class="container">
 		<div class="content">
@@ -18,6 +25,7 @@
 
 
 
+
 <section>
 	<div id="features">
 		<div class="container">
@@ -26,32 +34,39 @@
 			<p>Make sure all your tasks are organized so you can set the priorities and focus on important.</p>
 			<div class="tool-features">
 				<div class="box box-bottom">
-					<img src="~/images/chat.svg" alt="">
+					<img src="~/images/@(isDark ? "chat-dark.svg" : "chat.svg")" alt="" />
+
+				
 					<h5>Comments on Tasks</h5>
 					<p>Id mollis consectetur congue egestas egestas suspendisse blandit justo.</p>
 				</div>
 				<div class="box box-border box-2">
-					<img src="~/images/analytics.svg" alt="">
+					<img src="~/images/@(isDark ? "analytics-dark.svg" : "analytics.svg")" alt="" />
+
 					<h5>Tasks Analytics</h5>
 					<p>Non imperdiet facilisis nulla tellus Morbi scelerisque eget adipiscing vulputate.</p>
 				</div>
 				<div class="box box-bottom">
-					<img src="~/images/users.svg" alt="">
+					<img src="~/images/@(isDark ? "users-dark.svg" : "users.svg")" alt="" />
+
 					<h5>Multiple Assignees</h5>
 					<p>A elementum, imperdiet enim, pretium etiam facilisi in aenean quam mauris.</p>
 				</div>
 				<div class="box">
-					<img src="~/images/bell.svg" alt="">
+					<img src="~/images/@(isDark ? "bell-dark.svg" : "bell.svg")" alt="" />
+
 					<h5>Notifications</h5>
 					<p>Diam, suspendisse velit cras ac. Lobortis diam volutpat, eget pellentesque viverra.</p>
 				</div>
 				<div class="box box-border box-5">
-					<img src="~/images/list.svg" alt="">
+					<img src="~/images/@(isDark ? "list-dark.svg" : "list.svg")" alt="" />
+
 					<h5>Sections & Subtasks</h5>
 					<p>Mi feugiat hac id in. Sit elit placerat lacus nibh lorem ridiculus lectus.</p>
 				</div>
 				<div class="box">
-					<img src="~/images/security.svg" alt="">
+					<img src="~/images/@(isDark ? "security-dark.svg" : "security.svg")" alt="" />
+
 					<h5>Data Security</h5>
 					<p>Aliquam malesuada neque eget elit nulla vestibulum nunc cras.</p>
 				</div>
@@ -185,7 +200,10 @@
 </section>
 
 
-<section>
+@*  <partial name="_newsletterPartial" />
+ *@
+
+<section id="signup-section">
 	<div class="newsletter">
 	<div class="container">
 		<div class="title">
@@ -193,7 +211,9 @@
 		<img src="~/images/arrows.svg" alt="decorative arrows"/>
 		</div>
 			
-		<form>
+			
+
+		<form asp-action="Index" asp-controller="Subscriber" method="post">
 				<div class="newsletter-checkbox-group">
 					<h4 id="title">Sign up for Newsletters</h4>
 				<label>
@@ -224,16 +244,19 @@
 				<div class="email-button">
 				<div class="input-with-icon">
 					<i class="fa-regular fa-envelope"></i>
-					<input type="email" placeholder="Your Email" />
+						<input asp-for="@Model.Email" type="email" placeholder="Your Email" />
 				</div>
 				<div class="subscribe-button">
-				<button class="btn-theme">Subscribe*</button>
+				<button type="submit" class="btn-theme">Subscribe*</button>
 				</div>
 				</div>
 
 				<p>* Yes, I agree to the <a href="#">terms</a> and <a href="#">privacy</a> policy.</p>
 		</form>
-
+			@if (Model.IsSubscribed)
+			{
+				<div class="alert alert-primary">You are subscribed</div>
+			}
 	</div>
 	</div>
 </section>

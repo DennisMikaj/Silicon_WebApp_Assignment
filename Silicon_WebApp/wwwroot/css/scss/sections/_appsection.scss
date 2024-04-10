@@ -1,7 +1,8 @@
 ﻿.app-section {
-    background-color: #f3f6ff;
+    background-color: var(--app-section-outer);
 
     .container {
+        background-color: var(--theme-partial);
         display: flex;
         flex-direction: row;
         justify-content: space-around;

@@ -18,6 +18,45 @@
         form {
             padding: 1rem;
 
+            input {
+                background-color: var(--input-background);
+                color: var(--gray-900);
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            p {
+                color: var(--gray-600);
+            }
+
+            input[type="checkbox"] {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                position: relative;
+                padding: 8px;
+                background-color: var(--input-background);
+                border: 1px solid var(--gray-600);
+                border-radius: 0 !important;
+            }
+
+            input[type="checkbox"]::before {
+                content: "\2713";
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                right: 8%;
+                font-size: 20px;
+                line-height: 0;
+                color: transparent; // Hide the character
+            }
+
+            input[type="checkbox"]:checked::before {
+                color: var(--theme); // Change color when checked
+            }
+
 
             .content {
                 display: grid;
@@ -36,6 +75,7 @@
                 #form-remember {
                     grid-area: remember;
                     padding: 1rem 0;
+                    color: var(--gray-600);
                 }
 
                 #form-button {

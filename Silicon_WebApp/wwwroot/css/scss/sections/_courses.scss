@@ -4,12 +4,12 @@
         display: inline-block;
 
         a {
-            color: $gray-700;
+            color: var(--gray-700);
             text-decoration: none;
             margin: 10px;
 
             &:hover {
-                color: $gray-900;
+                color: var(--gray-900);
             }
         }
 
@@ -44,7 +44,7 @@
             border-right: 12px solid transparent;
             outline: 1px solid #D4D7E5;
             border-radius: 8px;
-            color: $gray-700;
+            color: var(--gray-700);
             width: 100%;
         }
 
@@ -56,7 +56,7 @@
                 min-width: 200px;
                 position: relative;
                 height: 60%;
-                border: 1px solid $gray-700;
+                border: 1px solid var(--gray-700);
                 border-radius: 8px;
                 outline: none;
                 padding: 8px;
@@ -107,8 +107,8 @@
 
             .fa-bookmark {
                 position: absolute;
-                top: 20px; 
-                right: 20px; 
+                top: 20px;
+                right: 20px;
                 color: black;
                 padding: 10px;
                 background-color: white;
@@ -123,7 +123,7 @@
 
             h6 {
                 margin-top: 15px;
-                color: $gray-800;
+                color: var(--gray-800);
                 margin-left: 30px;
             }
 
@@ -132,15 +132,15 @@
             }
 
             .price {
-                color: $theme;
+                color: var(--theme);
             }
 
             .price-sale {
-                color: $danger;
+                color: var(--danger);
             }
 
             span {
-                color: $gray-600;
+                color: var(--gray-600);
                 margin-left: 10px;
                 text-decoration: line-through;
             }
@@ -181,16 +181,16 @@
                 text-decoration: none;
                 border: none;
                 border-radius: 8px;
-                color: $gray-800;
+                color: var(--gray-800);
 
                 &:hover {
-                    background-color: $gray-400;
+                    background-color: var(--gray-400);
                 }
             }
 
             &.current {
                 font-weight: bold;
-                background-color: $theme;
+                background-color: var(--theme);
                 color: #fff;
             }
         }
@@ -211,16 +211,16 @@
             align-items: start;
 
             p {
-                color: $gray-700;
+                color: var(--gray-700);
                 font-size: 24px;
             }
 
             h2 {
-                color: $gray-900;
+                color: var(--gray-900);
             }
 
             span {
-                color: $theme;
+                color: var(--theme);
             }
 
             button {

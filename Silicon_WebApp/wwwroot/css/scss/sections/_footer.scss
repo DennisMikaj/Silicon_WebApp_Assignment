@@ -1,7 +1,7 @@
 footer {
     padding: 10px 15px;
     @include text-s;
-    color: $gray-600;
+    color: var(--gray-600);
 
     .container {
         width: 100%;

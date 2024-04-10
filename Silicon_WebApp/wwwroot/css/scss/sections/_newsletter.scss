@@ -1,6 +1,7 @@
 ﻿.newsletter {
-    background-color: #f3f6ff;
+    background-color: var(--theme-partial);
     padding-bottom: 60px;
+
     .container {
 
 
@@ -19,7 +20,7 @@
 
 
         h4 {
-            color: $gray-900;
+            color: var(--gray-900);
         }
 
         .newsletter-checkbox-group {
@@ -66,8 +67,11 @@
             position: relative;
             width: 100%;
             margin-bottom: 30px;
+
             input {
                 width: 100%;
+                background-color: var(--input-background);
+                color: var(--gray-900);
             }
         }
 

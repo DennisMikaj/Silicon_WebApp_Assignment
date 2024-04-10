@@ -1,6 +1,6 @@
 #features {
     text-align: center;
-    background-color: #f3f6ff;
+    background-color: var(--theme-partial);
 
     .container {
         padding-top: 40px;
@@ -13,14 +13,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
+
     .box {
         border-radius: 8px;
+
         img {
             margin-top: 25px;
         }
 
         &:hover {
-            background-color: #ffffff;
+            background-color: var(--gray-000);
         }
     }
 
