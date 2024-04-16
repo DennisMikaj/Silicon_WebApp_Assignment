@@ -17,6 +17,9 @@ public class AppUser : IdentityUser
 	[ProtectedPersonalData]
 	public string LastName { get; set; } = null!;
 
+	//public string? ProfileImageUrl { get; set; } = "avatar.jpg";
+
+
 	[ProtectedPersonalData]
 	public string? PhoneNumber { get; set; }
 

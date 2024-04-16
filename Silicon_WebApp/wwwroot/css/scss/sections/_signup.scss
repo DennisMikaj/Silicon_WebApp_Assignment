@@ -50,11 +50,11 @@
                 right: 8%;
                 font-size: 20px;
                 line-height: 0;
-                color: transparent; // Hide the character
+                color: transparent;
             }
 
             input[type="checkbox"]:checked::before {
-                color: var(--theme); // Change color when checked
+                color: var(--theme);
             }
 
             .content {
