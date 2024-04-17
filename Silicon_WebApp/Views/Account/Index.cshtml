@@ -17,7 +17,13 @@
 
 		<aside>
 			<div class="profile-info">
-				<img src="~/images/@Model.ProfileInfo.ProfileImageUrl" alt="" />
+				<img src="/uploads/@Model.ProfileInfo.ProfileImageUrl" alt="Profile Image" />
+
+				<form enctype="multipart/form-data" method="post" asp-action="UploadImage" asp-controller="Account">
+					<input id="uploadFile" type="file" name="file" hidden/>
+					<label for="uploadFile" class="btn-gray btn-circle btn-circle-sm"><i class="fa-regular fa-refresh"></i></label>
+				</form>
+
 				<h5>@Model.ProfileInfo.FirstName @Model.ProfileInfo.LastName</h5>
 				<p>@Model.ProfileInfo.Email</p>
 			</div>

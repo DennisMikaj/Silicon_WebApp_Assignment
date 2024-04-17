@@ -17,11 +17,13 @@ namespace Silicon_WebApp.Controllers
 			_logger = logger;
 		}
 
-		public IActionResult Index()
-		{
+		public async Task <IActionResult> Index()
+		{ 
+
 			var viewModel = new SubscribeViewModel();
 			return View(viewModel);
 		}
 
 	}
+
 }

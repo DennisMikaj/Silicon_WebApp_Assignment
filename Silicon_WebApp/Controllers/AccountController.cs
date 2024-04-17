@@ -8,11 +8,11 @@ using Silicon_WebApp.ViewModels;
 namespace Silicon_WebApp.Controllers;
 
 [Authorize]
-public class AccountController(UserManager<AppUser> userManager, AddressManager addressManager) : Controller
+public class AccountController(UserManager<AppUser> userManager, AddressManager addressManager, AccountManager accountManager) : Controller
 {
 	private readonly UserManager<AppUser> _userManager = userManager;
 	private readonly AddressManager _addressManager = addressManager;
-
+	private readonly AccountManager _accountManager = accountManager;
 	
 
 
@@ -129,7 +129,8 @@ public class AccountController(UserManager<AppUser> userManager, AddressManager 
 				LastName = user.LastName,
 				Email = user.Email!,
 				Phone = user.PhoneNumber,
-				Biography = user.Biography
+				Biography = user.Biography,
+				ProfileImageUrl = user.ProfileImageUrl,
 			};
 		}
 	}
@@ -143,6 +144,7 @@ public class AccountController(UserManager<AppUser> userManager, AddressManager 
 				FirstName = user!.FirstName,
 				LastName = user.LastName,
 				Email = user.Email!,
+				ProfileImageUrl = user.ProfileImageUrl,
 			};
 		}
 	}
@@ -182,10 +184,21 @@ public class AccountController(UserManager<AppUser> userManager, AddressManager 
 				LastName = user.LastName,
 				Email = user.Email!,
 				Phone = user.PhoneNumber,
-				Biography = user.Biography
+				Biography = user.Biography,
+				ProfileImageUrl = user.ProfileImageUrl
 			}
 		};
 
 		return model!;
 	}
+
+	[HttpPost]
+	public async Task<IActionResult> UploadImage(IFormFile file)
+
+	{
+		var result = await _accountManager.UploadUserProfileImageAsync(User, file);
+
+		return RedirectToAction("Index");
+	}
+
 }

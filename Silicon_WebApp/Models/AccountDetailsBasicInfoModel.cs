@@ -10,7 +10,7 @@ public class AccountDetailsBasicInfoModel
 
 
 	[DataType(DataType.ImageUrl)]
-	public string? ProfileImage { get; set; }
+	public string? ProfileImageUrl { get; set; }
 
 
 	[Display(Name = "First name", Prompt = "Enter your first name", Order = 0)]

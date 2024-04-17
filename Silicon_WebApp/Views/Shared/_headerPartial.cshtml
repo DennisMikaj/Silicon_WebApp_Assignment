@@ -1,0 +1,9 @@
+﻿@using Silicon_WebApp.ViewModels
+@{
+	var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
+	var isDark = (themeMode == "dark") ? true : false;
+	@model AccountDetailsViewModel
+
+}
+
+		

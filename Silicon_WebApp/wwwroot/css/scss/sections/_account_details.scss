@@ -11,6 +11,25 @@
         .profile-info {
             margin: 20px;
             text-align: center;
+            position: relative;
+
+            img {
+                max-width: 50%;
+                height: 130px;
+            }
+
+            form {
+                position: absolute;
+            }
+
+            .btn-circle-sm {
+                position: absolute;
+                padding: 8px;
+                font-size: 20px;
+                border-radius: 8px;
+                top: -30px;
+                right: 70px;
+            }
 
             h5 {
                 margin-top: 15px;
