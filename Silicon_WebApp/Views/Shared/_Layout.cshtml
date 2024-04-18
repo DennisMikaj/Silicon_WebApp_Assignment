@@ -3,6 +3,7 @@
 	var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
 	var isDark = (themeMode == "dark") ? true : false;
 
+	var user = await UserManager.GetUserAsync(User);
 }
 
 
@@ -66,7 +67,9 @@
 				<div class="account-buttons">
 					@if (User.Identity.IsAuthenticated)
 					{
-						<a asp-controller="Account" asp-action="Index"><img class="profile-link" src="/images/profile-image.svg" /></a>
+						<div class="profile-link">
+						<a asp-controller="Account" asp-action="Index"><img src="~/uploads/@user!.ProfileImageUrl" alt="Profile image"/></a>
+						</div>
 					}
 					else
 					{
