@@ -1413,10 +1413,20 @@ footer .container span {
   gap: 30px;
   margin-top: 50px;
 }
+.container .course-grid a {
+  text-decoration: none;
+  color: var(--gray-700);
+}
+.container .course-grid a:hover {
+  background-color: var(--gray-200);
+}
 .container .course-grid .course-content {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   text-align: start;
+}
+.container .course-grid .course-content:hover {
+  cursor: pointer;
 }
 .container .course-grid .course-content .inside-image {
   position: relative;
@@ -1446,6 +1456,10 @@ footer .container span {
   background-color: white;
   border-radius: 500px;
   font-size: 18px;
+  z-index: 1;
+}
+.container .course-grid .course-content .fa-bookmark:hover {
+  background-color: var(--gray-500);
 }
 .container .course-grid .course-content hr {
   width: 88%;
@@ -1536,4 +1550,15 @@ footer .container span {
 }
 .container .bottom-section .text-section button {
   margin-top: 30px;
+}
+
+.container .not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .not-found img {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }

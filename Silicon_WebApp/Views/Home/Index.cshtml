@@ -250,13 +250,16 @@
 				<button type="submit" class="btn-theme">Subscribe*</button>
 				</div>
 				</div>
-
-				<p>* Yes, I agree to the <a href="#">terms</a> and <a href="#">privacy</a> policy.</p>
+				@if (string.IsNullOrEmpty(TempData["IsSubscribed"]?.ToString()))
+				{
+					<p>* Yes, I agree to the <a asp-action="Index" asp-controller="NotFound">terms</a> and <a asp-action="Index" asp-controller="NotFound">privacy</a> policy.</p>
+				} 
+				else
+				{
+					<p class="alert alert-primary">You are subscribed</p>
+				}
 		</form>
-			@if (Model.IsSubscribed)
-			{
-				<div class="alert alert-primary">You are subscribed</div>
-			}
+			
 	</div>
 	</div>
 </section>

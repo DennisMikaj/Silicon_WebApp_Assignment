@@ -30,9 +30,10 @@ public class SubscriberController : Controller
 				if (response.IsSuccessStatusCode)
 				{
 				viewModel.IsSubscribed = true;
-				TempData["IsSubscribed"] = true;
+				TempData["IsSubscribed"] = "You are now Subscribed";
 				return Redirect(Url.Action("Index", "Home") + "#signup-section");
 			}
+			TempData["IsSubscribed"] = "Subscription failed";
 			return Redirect(Url.Action("Index", "Home") + "#signup-section");
 		}
 		return Redirect(Url.Action("Index", "Home") + "#signup-section");

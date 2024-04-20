@@ -7,7 +7,7 @@ using Silicon_WebApp.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
-
+builder.Services.AddHttpClient();
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
 builder.Services.AddDefaultIdentity<AppUser>(x =>
 {
@@ -42,4 +42,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+	name: "catch-all",
+	pattern: "{*url}",
+	defaults: new { controller = "NotFound", action = "Index" });
 app.Run();

@@ -15,7 +15,7 @@
 			<h1>Courses</h1>
 			<div class="dropdown">
 				<select>
-					<option value="" disabled selected>All Categories</option>
+					<option value="all" disabled selected>All Categories</option>
 				</select>
 			</div>
 			<div class="searchbar">
@@ -27,7 +27,7 @@
 
 			@foreach (var course in Model!)
 				{
-					<div class="course-content">
+					<div onclick="location.href='@Url.Action("Details", "Courses", new {id = ""})'" class="course-content">
 						<div class="inside-image">
 							@if (course.IsBestseller)
 							{
@@ -35,7 +35,9 @@
 
 							}
 							<img src="~/images/@course.ImageName" alt="@course.Id" class="course-image" />
-							<i class="fa-regular fa-bookmark"></i>
+						<div class="bookmark">
+						<a class="btn-circle-sm btn-circle bookmark" asp-action="Join" asp-controller="Courses"><i class="fa-regular fa-bookmark"></i></a>
+						</div>
 						</div>
 						<h6>@course.Title</h6>
 						<p>@course.Author</p>

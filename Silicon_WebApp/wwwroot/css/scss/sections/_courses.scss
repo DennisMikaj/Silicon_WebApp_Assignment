@@ -78,10 +78,23 @@
         gap: 30px;
         margin-top: 50px;
 
+        a {
+            text-decoration: none;
+            color: var(--gray-700);
+
+            &:hover {
+                background-color: var(--gray-200);
+            }
+        }
+
         .course-content {
             box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: start;
+
+            &:hover {
+                cursor: pointer;
+            }
 
             .inside-image {
                 position: relative;
@@ -114,6 +127,11 @@
                 background-color: white;
                 border-radius: 500px;
                 font-size: 18px;
+                z-index: 1;
+
+                &:hover {
+                    background-color: var(--gray-500);
+                }
             }
 
             hr {
